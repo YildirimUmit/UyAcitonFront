@@ -13,8 +13,8 @@
         "heroku-postbuild": "npm run config && npm run build-prod"
     },
     "engines": {
-        "npm": "10.5.2",
-        "node": "20.12.2"
+        "node": "10.15.1",
+        "npm": "6.4.1"
     },
     "private": true,
     "dependencies": {
