@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 
-const root = __dirname + "/dist/sakai-ng";
 
-app.use(express.static(root));
 
-app.get('*', (req, res) => {
-    res.sendFile('index.html', {root: root})
+app.use(express.static( __dirname + "/dist/sakai-ng"));
+
+app.get('/*', (req, res) => {
+    res.sendFile( __dirname + "/dist/sakai-ng/index.html");
 });
 
 app.listen(process.env.PORT || 8081);

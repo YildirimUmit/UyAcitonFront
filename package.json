@@ -9,8 +9,7 @@
         "build": "npm run unbuild && npm install",
         "build-prod": "$(npm bin)/ng build --configuration production",
         "watch": "ng build --watch --configuration development",
-
-        "heroku-postbuild": "npm run config && npm run build-prod",
+        "heroku-postbuild": "ng build  --configuration development",
         "test": "SET NODE_ENV=production "
     },
     "engines": {
