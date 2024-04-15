@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import {AuthenticationService} from "../../../service/authentication.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../../../../models/User";
 
 @Component({
     selector: 'app-login',
@@ -13,11 +16,34 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
         }
     `]
 })
-export class LoginComponent {
-
+export class LoginComponent implements OnInit{
+    user: User = new User();
     valCheck: string[] = ['remember'];
 
     password!: string;
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(public layoutService: LayoutService,private authenticationService:AuthenticationService,        private route: ActivatedRoute,
+                private router: Router,) {
+
+        if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
+
+    }
+
+    ngOnInit(): void {
+
+
+    }
+
+    logIn(){
+        this.authenticationService.login(this.user).subscribe(data=>{
+            this.router.navigate(['/']);
+        },error => {
+            console.log("Username or password is incorrect.")
+        })
+
+
+    }
+
 }

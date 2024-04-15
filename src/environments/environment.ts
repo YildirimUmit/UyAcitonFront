@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    BASE_URL: 'http://localhost:8080'
+    BASE_URL: 'http://localhost:8080',
+    API_URL: 'https://uyaction-563f81d79e93.herokuapp.com'
 };
 
 /*

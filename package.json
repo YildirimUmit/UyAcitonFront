@@ -10,7 +10,8 @@
         "build-prod": "$(npm bin)/ng build --configuration production",
         "watch": "ng build --watch --configuration development",
         "heroku-postbuild": "ng build  --configuration development",
-        "test": "SET NODE_ENV=production "
+        "test": "SET NODE_ENV=production ",
+        "serve": "npm start"
     },
     "engines": {
         "node": "21.7.3",
