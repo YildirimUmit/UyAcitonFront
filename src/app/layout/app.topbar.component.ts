@@ -23,7 +23,9 @@ export class AppTopBarComponent {
     }
 
     logOut(){
+
         this.authenticationService.logOut();
+
 
     }
 }
