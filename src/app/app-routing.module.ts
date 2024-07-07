@@ -19,6 +19,7 @@ import {AuthenticationService} from "./demo/service/authentication.service";
                     { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule), canActivate: [AuthGuard],data: { roles: [Role.USER,Role.PM,Role.ADMIN] } },
                     { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) , canActivate: [AuthGuard], data: { roles: [Role.USER,Role.PM,Role.ADMIN]  }},
                     { path: 'blocks', loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule), canActivate: [AuthGuard], data: { roles: [Role.USER,Role.PM,Role.ADMIN]  } },
+                    { path: 'products', loadChildren: () => import('./demo/components/product/product-routing.module').then(m => m.ProductRoutingModule), canActivate: [AuthGuard], data: { roles: [Role.USER,Role.PM,Role.ADMIN]  } },
                     { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) }
                 ]
             },

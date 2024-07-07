@@ -3,6 +3,7 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../../../models/User";
+import {MessageService} from "primeng/api";
 
 @Component({
     selector: 'app-login',
@@ -19,11 +20,11 @@ import {User} from "../../../../models/User";
 export class LoginComponent implements OnInit{
     user: User = new User();
     valCheck: string[] = ['remember'];
-
+    loading:boolean=false;
     password!: string;
 
     constructor(public layoutService: LayoutService,private authenticationService:AuthenticationService,        private route: ActivatedRoute,
-                private router: Router,) {
+                private router: Router,public messageService: MessageService) {
 
         if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
@@ -37,10 +38,14 @@ export class LoginComponent implements OnInit{
     }
 
     logIn(){
+       this.loading=true;
         this.authenticationService.login(this.user).subscribe(data=>{
             this.router.navigate(['/']);
+
         },error => {
-            console.log("Username or password is incorrect.")
+            this.loading=false;
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Username or password is incorrect.' });
+
         })
 
 
