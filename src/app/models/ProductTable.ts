@@ -1,6 +1,6 @@
 import {Size} from "./Size.enum";
 
-export class ProductUtil {
+export class ProductTable {
     productUtilId: number;
     productId: number;
     price: number;
@@ -8,4 +8,9 @@ export class ProductUtil {
     size?: Size;
     quantity: number;
     image: string
+    productName: string;
+    productCreatedDate: number;
+    productUpdatedDate: number;
+    id: number;
+    categoryId: number;
 }
